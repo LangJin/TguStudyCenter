@@ -296,7 +296,7 @@
         }
 
         .class_list li {
-          width: 45%;
+          width: 44%;
           background-color: #fff;
           border: 1px solid #e1e4e8;
           border-radius: 6px;
