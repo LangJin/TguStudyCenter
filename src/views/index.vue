@@ -1,7 +1,7 @@
 <template>
   <div class='content'>
     <page-header></page-header>
-    <main class="main center">
+    <main class="main center Page">
       <div class="user">
         <div class="user_avatar">
           <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="">
@@ -178,8 +178,6 @@
 
   .main {
     display: flex;
-    max-width: 1280px;
-    margin: auto;
     margin-top: 24px;
 
     .user {
