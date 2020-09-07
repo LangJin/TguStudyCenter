@@ -37,7 +37,7 @@
                 <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
                 <div style="margin-bottom: 16px">在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
                 <el-button size="small">签到</el-button>
-                <el-button size="small">提交作业</el-button>                
+                <el-button size="small">提交作业</el-button>
               </el-collapse-item>
               <el-collapse-item title="反馈 Feedback" name="2">
                 <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
@@ -96,22 +96,21 @@
       </div>
       <div class="aside">
         <div class="aside_item">
-          <h4>公告</h4>
-          <div>xxxx</div>
-          <div>xxxx</div>
-          <div>xxxx</div>
+          <h4>公告：</h4>
+          <div style="text-indent: 2em;">追求得到之日即其终止之时，寻觅的过程亦即失去的过程。</div>
         </div>
         <div class="aside_item">
           <h4>群成员</h4>
-          <div>xxxx</div>
-          <div>xxxx</div>
-          <div>xxxx</div>
+          <div class="student">
+            <div class="avatar">
+              <img src="../../assets/images/default_photo.jpg" alt="">
+            </div>            
+            <div class="stu_name">username</div>
+          </div>
         </div>
         <div class="aside_item">
           <h4>下载资料</h4>
-          <div>xxxx</div>
-          <div>xxxx</div>
-          <div>xxxx</div>
+          <div class="download_data"></div>
         </div>
       </div>
     </div>
@@ -239,10 +238,32 @@ export default {
 
     .aside {
       width: 320px;
-      margin-left: 20px;
+      margin-left: 20px;      
 
       .aside_item {
-        margin: 20px 0 30px 0;
+        margin: 20px 0 60px 0;        
+        h4 {
+          margin-bottom: 10px;
+        }
+        .student {
+          display: flex;
+          align-items: center;
+          line-height: 16px;
+
+          .avatar{                        
+            width: 40px;
+            height: 40px;            
+            img{
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+            }
+          }
+          .stu_name {
+            display: flex;
+            margin-left: 10px;
+          }
+        }
       }
     }
   }
