@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="coures_info_main center">
+    <div class="coures_info_main center Page">
       <div class="content">
         <div
           class="course_description course_wrap"
