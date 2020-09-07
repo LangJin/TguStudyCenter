@@ -1,0 +1,7 @@
+.d_flex{
+    display: flex;
+}
+
+.flex-items-center{
+    align-items: center;
+}

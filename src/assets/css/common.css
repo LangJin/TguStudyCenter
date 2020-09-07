@@ -137,6 +137,7 @@ a {
 
 a:hover {
   color: #4285f4 !important;
+  cursor: pointer;
 }
 
 h2 {
@@ -153,4 +154,11 @@ h2 {
 .Page {
   width: 1200px;
   margin: 0 auto;
+}
+
+@media screen and (max-width:1200px) {
+  .center {
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+  }
 }

@@ -1,15 +1,59 @@
 <template>
   <div class='content'>
     <page-header></page-header>
-    <main class="main">
+    <main class="main center">
       <div class="user">
         <div class="user_avatar">
           <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="">
         </div>
         <div class="user_info">
-          <p>chenfeng</p>
+          <p>chenfeng1995</p>
+          <p>{{sign}}</p>
           <!-- <p>若往事能够下酒，回忆便是一场宿醉</p> -->
-          <button class="edit_btn">编辑个人资料</button>
+          <button class="edit_btn" @click="editData" v-show="edit_btn">编辑个人资料</button>
+        </div>
+        <div class="edit_form" v-show="showForm">
+          <div class="sign">
+            <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="请输入签名" v-model.trim="sign">
+            </el-input>
+          </div>
+          <ul class="input_container">
+            <li class="d_flex flex-items-center">
+              <i class="el-icon-office-building"></i>
+              <el-input placeholder="请输入公司" v-model.trim="form.company">
+              </el-input>
+            </li>
+            <li class="d_flex flex-items-center">
+              <i class="el-icon-location-outline"></i>
+              <el-input placeholder="请输入地区" v-model.trim="form.location">
+              </el-input>
+            </li>
+            <li class="d_flex flex-items-center">
+              <i class="el-icon-message"></i>
+              <el-input placeholder="请输入邮箱" v-model.trim="form.email">
+              </el-input>
+            </li>
+            <li class="d_flex flex-items-center">
+              <el-button type="success" @click="save">保存</el-button>
+              <el-button @click="cancle">取消</el-button>
+            </li>
+          </ul>
+        </div>
+        <div class="block" v-show="blockForm">
+          <ul>
+            <li>
+              <i class="el-icon-office-building"></i>
+              <span>{{saveForm.company}}</span>
+            </li>
+            <li>
+              <i class="el-icon-location-outline"></i>
+              <span>{{saveForm.location}}</span>
+            </li>
+            <li>
+              <i class="el-icon-message"></i>
+              <span>{{saveForm.email}}</span>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="main_content">
@@ -77,22 +121,61 @@
     },
     data() {
       return {
-        activeName: 'first'
+        activeName: 'first',
+        showForm: false,
+        edit_btn: true,
+        sign: '',
+        form: {
+          company: '',
+          location: '',
+          enail: '',
+
+        },
+        saveForm: {
+          // company: '',
+          // location: '',
+          // enail: '',
+        },
+        blockForm: false
       };
     },
     watch: {},
     computed: {},
     methods: {
-      toLearn(){
+      toLearn() {
         window.open('/classLearn')
+      },
+      editData() {
+        this.showForm = true
+        this.edit_btn = false
+        this.blockForm = false
+      },
+      save() {
+        this.showForm = false
+        this.form = this.saveForm
+        if (JSON.stringify(this.saveForm) != '{}') {
+          this.blockForm = true
+        }
+        this.edit_btn = true
+      },
+      cancle() {
+        this.showForm = false
+        this.edit_btn = true
+        this.form = {}
       }
     },
-    created() {},
+    created() {
+      if (JSON.stringify(this.saveForm) != '{}') {
+        this.blockForm = true
+      }
+    },
     mounted() {}
   };
 
 </script>
 <style lang="scss" scoped>
+  @import '../assets/css/flex.css';
+
   .main {
     display: flex;
     max-width: 1280px;
@@ -114,14 +197,24 @@
       }
 
       .user_info {
+        padding: 3px;
+        padding-top: 12px;
+
         p:nth-child(1) {
           font-size: 20px;
           font-style: normal;
           font-weight: 300;
           line-height: 24px;
-          padding: 16px;
           color: #666;
+          padding-bottom: 12px;
         }
+
+        p:nth-child(2) {
+          font-size: 16px;
+          color: #24292e;
+          margin-bottom: 8px;
+        }
+
 
         .edit_btn {
           color: #24292e;
@@ -138,9 +231,46 @@
           vertical-align: middle;
           cursor: pointer;
           user-select: none;
-          border-radius: 6px
+          border-radius: 6px;
+          margin-bottom: 16px;
+
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
         }
       }
+
+      .edit_form {
+        li {
+          margin-top: 8px;
+
+          .el-input {
+            margin-left: 8px !important;
+          }
+
+          >>>.el-input__inner {
+            height: 28px;
+            line-height: 28px;
+            font-size: 12px;
+          }
+
+          button {
+            padding: 3px 12px;
+            font-size: 12px;
+            line-height: 20px;
+          }
+
+          &:last-child {
+            margin: 16px 0;
+          }
+        }
+
+      }
+    }
+
+    i {
+      font-size: 18px;
     }
 
     .main_content {
@@ -192,6 +322,16 @@
         }
 
       }
+    }
+  }
+
+ 
+  @media screen and (max-width:1240px) {
+    .main .user {
+      width: 36%;
+    }
+    .class_list li{
+      width: 36% !important;
     }
   }
 
