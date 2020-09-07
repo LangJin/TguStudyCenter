@@ -2,7 +2,7 @@
   <div class="class_learn">
     <page-header></page-header>
     <div class="course_info">
-      <div class="center">
+      <div class="center Page" style="height:200px">
         <h2>初识HTML(5)+CSS(3)-2020升级版</h2>
         <div class="statics">
           <div class="teacher">
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="coures_info_main center">
+    <div class="coures_info_main center Page">
       <div class="content">
         <div
           class="course_description course_wrap"
@@ -142,9 +142,7 @@ export default {
 <style lang="scss" scoped>
 .class_learn {
   .center {
-    max-width: 1152px;
     height: 200px;
-    margin: 0 auto;
   }
 
   .course_wrap {

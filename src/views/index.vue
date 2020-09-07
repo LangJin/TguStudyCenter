@@ -1,7 +1,7 @@
 <template>
   <div class='content'>
     <page-header></page-header>
-    <main class="main center">
+    <main class="main center Page">
       <div class="user">
         <div class="user_avatar">
           <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="">
@@ -131,11 +131,7 @@
           enail: '',
 
         },
-        saveForm: {
-          // company: '',
-          // location: '',
-          // enail: '',
-        },
+        saveForm: {},
         blockForm: false
       };
     },
@@ -177,13 +173,13 @@
   @import '../assets/css/flex.css';
 
   .main {
-    display: flex;
-    max-width: 1280px;
-    margin: auto;
     margin-top: 24px;
+    overflow: hidden;
 
     .user {
+      float: left;
       width: 25%;
+      margin: 0 16px;
 
       .user_avatar {
         width: 280px;
@@ -238,6 +234,11 @@
             outline: none;
             box-shadow: none;
           }
+
+          &:hover {
+            background-color: #f3f4f6;
+            transition-duration: .1s;
+          }
         }
       }
 
@@ -274,8 +275,9 @@
     }
 
     .main_content {
-      width: 100%;
-      padding: 0 30px;
+      float: left;
+      width: 65%;
+      margin: 0 32px;
 
       .tags {
         .title {
@@ -298,7 +300,7 @@
         }
 
         .class_list li {
-          width: 45%;
+          width: 43%;
           background-color: #fff;
           border: 1px solid #e1e4e8;
           border-radius: 6px;
@@ -325,12 +327,18 @@
     }
   }
 
- 
+
   @media screen and (max-width:1240px) {
     .main .user {
-      width: 36%;
+      width: 25%;
     }
-    .class_list li{
+
+    .main_content {
+      width: 64% !important;
+      margin: 0 32px !important;
+    }
+
+    .class_list li {
       width: 36% !important;
     }
   }
