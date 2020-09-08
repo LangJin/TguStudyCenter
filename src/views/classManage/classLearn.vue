@@ -72,22 +72,21 @@
           <div>xxxx</div>
         </div>
         <div class="aside_item">
-          <h4>公告</h4>
-          <div>xxxx</div>
-          <div>xxxx</div>
-          <div>xxxx</div>
+          <h4>公告：</h4>
+          <div style="text-indent: 2em;">追求得到之日即其终止之时，寻觅的过程亦即失去的过程。</div>
         </div>
         <div class="aside_item">
           <h4>群成员</h4>
-          <div>xxxx</div>
-          <div>xxxx</div>
-          <div>xxxx</div>
+          <div class="student">
+            <div class="avatar">
+              <img src="../../assets/images/default_photo.jpg" alt="">
+            </div>            
+            <div class="stu_name">username</div>
+          </div>
         </div>
         <div class="aside_item">
           <h4>下载资料</h4>
-          <div>xxxx</div>
-          <div>xxxx</div>
-          <div>xxxx</div>
+          <div class="download_data"></div>
         </div>
       </div>
     </div>
