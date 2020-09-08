@@ -1,6 +1,5 @@
 <template>
   <div class='content'>
-    <page-header></page-header>
     <main class="main center Page">
       <div class="user">
         <div class="user_avatar">
@@ -69,7 +68,7 @@
                 <ul class="class_list">
                   <li>
                     <div class="class_name">
-                      <a @click="toLearn">名称</a>
+                      <a @click="toLearn()">名称</a>
                     </div>
                     <p class="class_intro">简介</p>
                     <p>人数:xx</p>
@@ -112,12 +111,10 @@
 </template>
 
 <script>
-  import pageHeader from '@/components/header/header'
   import interviewTable from '@/components/interviewRecord/interviewRecord'
   export default {
     components: {
       interviewTable,
-      pageHeader
     },
     data() {
       return {
@@ -142,9 +139,10 @@
         window.open('/classLearn')
       },
       editData() {
-        this.showForm = true
-        this.edit_btn = false
-        this.blockForm = false
+        window.open('/setting/profile')
+        // this.showForm = true
+        // this.edit_btn = false
+        // this.blockForm = false
       },
       save() {
         this.showForm = false
@@ -170,7 +168,7 @@
 
 </script>
 <style lang="scss" scoped>
-  @import '../assets/css/flex.css';
+
 
   .main {
     margin-top: 24px;

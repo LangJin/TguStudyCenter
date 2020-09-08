@@ -30,11 +30,25 @@
             </div>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>xx</el-dropdown-item>
-              <el-dropdown-item>创建组织</el-dropdown-item>
+              <el-dropdown-item @click.native="add()">创建组织</el-dropdown-item>
               <el-dropdown-item>退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
+        <el-dialog title="创建组织" :visible.sync="dialogVisible" width="30%">
+          <el-form :model="createForm" ref="createForm" label-width="100px" class="demo-ruleForm" :rules="formRules">
+            <el-form-item label="名称：" prop="name">
+              <el-input v-model.trim="createForm.name"></el-input>
+            </el-form-item>
+            <el-form-item label="简介：" prop="intro">
+              <el-input v-model.trim="createForm.intro" type="textarea" :rows="2"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="cancleForm('createForm')">取 消</el-button>
+              <el-button @click="submitForm('createForm')">确 定</el-button>
+            </el-form-item>
+          </el-form>
+        </el-dialog>
       </div>
     </header>
   </div>
@@ -44,18 +58,55 @@
   export default {
     components: {},
     data() {
-      return {};
+      return {
+        dialogVisible: false,
+        createForm: {
+          name: '',
+          intro: ''
+        },
+        formRules: {
+          name: [{
+            required: true,
+            message: '请输入组织名称',
+            trigger: 'blur'
+          }],
+          intro: [{
+            required: true,
+            message: '请输入简介内容',
+            trigger: 'blur'
+          }],
+        }
+
+      };
     },
     watch: {},
     computed: {},
-    methods: {},
+    methods: {
+      add() {
+        this.dialogVisible = true
+      },
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            alert('submit!');
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      cancleForm(formName) {
+        this.$refs[formName].resetFields();
+        this.dialogVisible = false
+      }
+    },
     created() {},
     mounted() {},
   };
 
 </script>
 <style lang="scss" scoped>
-  @import '../../assets/css/flex.css';
+  @import "../../assets/css/flex.css";
 
   .page_header {
     z-index: 32;

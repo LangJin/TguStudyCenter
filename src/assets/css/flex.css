@@ -5,3 +5,7 @@
 .flex-items-center{
     align-items: center;
 }
+
+.flex-items-justify{
+    justify-content: space-between;
+}

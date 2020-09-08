@@ -15,11 +15,20 @@ const router = new Router({
       path: '/',
       component: () => import( /* webpackChunkName: "index" */ '@/views/index')
     },
-
+    {
+      path: '/setting/profile',
+      name: 'profile',
+      component: () => import( /* webpackChunkName: "classManage" */ '@/views/setting/profile')
+    },
     {
       path: '/classLearn',
       name: 'classLearn',
       component: () => import( /* webpackChunkName: "classManage" */ '@/views/classManage/classLearn')
+    },
+    {
+      path: '/catalogue',
+      name: 'catalogue',
+      component: () => import( /* webpackChunkName: "classManage" */ '@/views/catalogue/catalogue')
     },
 
   ]
